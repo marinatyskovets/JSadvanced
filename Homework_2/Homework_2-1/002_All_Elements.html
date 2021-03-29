@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>All, Elements</title>
+<!--    <style>-->
+<!--    * {-->
+<!--        color: red;-->
+<!--        text-decoration: none;-->
+<!--    }-->
+<!--    p {-->
+<!--        color: brown;-->
+<!--    }-->
+<!--    .class {-->
+<!--        color: green;-->
+<!--    }-->
+<!--    a {-->
+<!--        font-weight: bold;-->
+<!--        font-style: italic;-->
+<!--        text-decoration: underline;-->
+<!--    }-->
+<!--    p, a {-->
+<!--        text-transform: uppercase;-->
+<!--    }-->
+<!--    </style>-->
+</head>
+<body>
+    <h1 class="class1" id="id1">Title</h1>
+    <p class="class">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    </p>
+    <a href="#">Link</a>
+
+    <script>
+        //Перепишите все селекторы из первой папки 001_CSS_Selectors с помощью известных Вам методов и свойств.
+        //В примере с классом добавьте к существующем классу, класс с именем newclass, а также выведите в консоль все стили что есть у элемента с этим классом
+        //В примере с индентификатором добавьте свойства marginTop с значением 10px и background с значением red
+
+        var all = document.querySelectorAll('*');
+        for (var i = 0; i < all.length; i++) {
+            all[i].style.cssText = 'color: red; text-decoration: none';
+        }
+
+        var p = document.getElementsByTagName('p');
+        for (var i = 0; i < p.length; i++) {
+            p[i].style.cssText = 'color: brown; text-transform: uppercase';
+        }
+
+        var styleClass = document.getElementsByClassName('class');
+        for (var i = 0; i < styleClass.length; i++) {
+            styleClass[i].style.color = 'green';
+            styleClass[i].classList.add('newClass');
+        }
+
+        var a = document.getElementsByTagName('a');
+        for (var i = 0; i < a.length; i++) {
+            a[i].style.fontWeight = 'bold';
+            a[i].style.fontStyle = 'italic';
+            a[i].style.textDecoration = 'underline';
+            a[i].style.textTransform = 'uppercase';
+        }
+
+        var elementsById = document.getElementById('id1');
+        elementsById.style.marginTop = '10px';
+        elementsById.style.backgroundColor = 'red';
+
+        var elementsByClass = document.getElementsByClassName('class1');
+        for (var i = 0; i < elementsByClass.length; i++) {
+            elementsByClass[i].classList.add('newClass');
+        }
+
+        var elements = document.getElementsByClassName('newClass');
+        for (var i = 0; i < elements.length; j++) {
+            console.log(elements[i].style.cssText);
+        }
+    </script>
+</body>
+</html>

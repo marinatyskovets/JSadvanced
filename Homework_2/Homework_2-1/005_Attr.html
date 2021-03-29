@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Attr</title>
+<!--    <style>-->
+<!--        a[target] {-->
+<!--            background-color: yellow;-->
+<!--        }-->
+<!--        a[target='_blank'] { -->
+<!--            background-color: red;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+    <a href="#">w3schools.com</a>
+    <a href="http://www.google.com" target="_blank">google.com</a>
+    <a href="http://www.wikipedia.org" target="_self">wikipedia.org</a>
+    <a href="#">Someting</a>
+
+    <script>
+        //Перепишите все селекторы из первой папки 001_CSS_Selectors с помощью известных Вам методов и свойств.
+        //В примере с классом добавьте к существующем классу, класс с именем newclass, а также выведите в консоль все стили что есть у элемента с этим классом
+        //В примере с индентификатором добавьте свойства marginTop с значением 10px и background с значением red
+
+        for (let elem of document.body.children) {
+            if (elem.matches('a[target]')) {
+                elem.style.backgroundColor = 'yellow';
+            }
+            if (elem.matches('a[target="_blank"]')) {
+                elem.style.backgroundColor = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

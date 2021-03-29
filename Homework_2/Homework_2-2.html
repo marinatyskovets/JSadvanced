@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_2-2</title>
+</head>
+<body>
+    <div id="one">one</div>
+
+    <script>
+        // Добавьте после дива с id=one еще один див с текстом two и id=two
+        // На клик по id=two добавьте перед ним див с id - two_first, а див с id=two измените на two_second
+
+        var divOne = document.getElementById('one');
+        divOne.insertAdjacentHTML('afterend', '<div id="two">two</div>');
+
+        var divTwo = document.getElementById('two');
+        divTwo.addEventListener('click', function () {
+            (this).insertAdjacentHTML('beforebegin', '<div id="two_first"></div>');
+            (this).id = 'two_second';
+        });
+    </script>
+</body>
+</html>

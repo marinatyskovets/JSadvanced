@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Id and classes</title>
+    <style>
+        /*#id1 {*/
+        /*    color: red;*/
+        /*}*/
+        /*div.class1 {*/
+        /*    color: blue;*/
+        /*    font-size: 14px;*/
+        /*    text-decoration: underline;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <h1 id="id1">Title</h1>
+    <div class="class1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Nulla consequuntur, obcaecati recusandae enim laboriosam eaque, sint incidunt.
+        Perferendis mollitia incidunt blanditiis eveniet, fuga sapiente.
+        Magni dicta maxime fugiat sint soluta?
+    </div>
+
+    <script>
+        //Перепишите все селекторы из первой папки 001_CSS_Selectors с помощью известных Вам методов и свойств.
+        //В примере с классом добавьте к существующем классу, класс с именем newclass, а также выведите в консоль все стили что есть у элемента с этим классом
+        //В примере с индентификатором добавьте свойства marginTop с значением 10px и background с значением red
+
+        var elementsById = document.getElementById('id1');
+        elementsById.style.color = 'red';
+        elementsById.style.marginTop = '10px';
+        elementsById.style.backgroundColor = 'red';
+
+        var div = document.querySelectorAll('div.class1');
+        for (var i = 0; i < div.length; i++) {
+            div[i].style.cssText = 'color: blue; font-size: 14px; text-decoration: underline';
+        }
+
+        var elementsByClass = document.getElementsByClassName('class1');
+        for (var i = 0; i < elementsByClass.length; i++) {
+            elementsByClass[i].classList.add('newClass');
+        }
+
+        var elements = document.getElementsByClassName('newClass');
+        for (var i = 0; i < elements.length; i++) {
+            console.log(elements[i].style.cssText);
+        }
+    </script>
+</body>
+</html>
