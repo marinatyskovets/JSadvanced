@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_4-1</title>
+</head>
+<body>
+    <!-- Напишите регулярные выражения, которые будут выбирать
+       индекс - 55535 - 5 numbers
+       ip адресс, пример 255.255.255.255
+       цены в долларах - $0.84, $1232.84, $4
+       дата в виде - 30/12/2016 - день, месяц, год
+    -->
+    <div class="content">
+        Lorem ipsum dolor sit amet 55555 consectetur adipisicing elit. Fuga deserunt 255.255.255.255 rerum atque vero soluta
+        error illo, mollitia hic necessitatibus harum $0.84, $1232.84, $4 ipsam veniam! Placeat cumque tempore voluptatibus
+        30/12/2016 velit quo quasi dolores.
+    </div>
+    <br>
+    <br>
+
+
+    <script>
+        var content = document.querySelector('.content');
+        var text = content.textContent;
+
+        // индекс
+        var index = new RegExp(/\d{5}/g);
+
+        // ip адрес
+        var ip = new RegExp(/(([1-9]?\d|1\d\d|25[0-5]|2[0-4]\d)\.){3}([1-9]?\d|1\d\d|25[0-5]|2[0-4]\d)/g);
+
+        // цены
+        var price = new RegExp(/(\$[0-9,]+(\.[0-9]{2})?)/g);
+
+        // дата
+        var date = new RegExp(/(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}/g);
+
+        document.write("Индекс" + " - " + index.test(text) + " - " + text.match(index) + "<br>");
+        document.write("Ip адрес" + " - " + ip.test(text) + " - " + text.match(ip) + "<br>");
+        document.write("Цены" + " - " + price.test(text) + " - " + text.match(price) + "<br>");
+        document.write("Дата" + " - " + date.test(text) + " - " + text.match(date) + "<br>");
+    </script>
+</body>
+</html>

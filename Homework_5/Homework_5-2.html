@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_4-2</title>
+    <style>
+        .content {
+            width: 800px;
+            padding: 10px;
+            margin: 0 0 10px;
+            border: 1px solid #000000;
+        }
+        h3 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик. -->
+
+    <div class="wrapper">
+        <div class="content">
+            <h3>Block 1</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <button class="delete">delete</button>
+        </div>
+        <div class="content">
+            <h3>Block 2</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <button class="delete">delete</button>
+        </div>
+        <div class="content">
+            <h3>Block 3</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <button class="delete">delete</button>
+        </div>
+        <div class="content">
+            <h3>Block 4</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <button class="delete">delete</button>
+        </div>
+        <div class="content">
+            <h3>Block 5</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <button class="delete">delete</button>
+        </div>
+    </div>
+
+
+    <script>
+        var container = document.querySelector('.wrapper');
+
+        container.addEventListener('click', function (e) {
+            if (e.target.className !== 'delete') return;
+
+            var block = e.target.closest('.content');
+            block.remove();
+        })
+    </script>
+</body>
+</html>

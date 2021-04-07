@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_5-1</title>
+    <style>
+        #link {
+            display: block;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 20px;
+        }
+        #remove {
+            text-transform: uppercase;
+             margin: 20px;
+        }
+        .content {
+            display: none;
+            font-size: 14px;
+            color: #292929;
+            padding: 10px 0;
+        }
+        .content.active {
+            display: block;
+        }
+    </style>
+</head>
+    <body>
+        <!--
+        Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+        При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+        Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+        -->
+
+        <a href="#" id="link">Показать и скрыть элемент с текстом!
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </a>
+        <button id="remove">remove</button>
+
+        <script>
+            var div = document.querySelector('.content');
+            var btn = {
+                link: document.getElementById('link'),
+                remove: document.getElementById('remove'),
+            }
+
+            btn.link.addEventListener("click", showHide);
+            btn.remove.addEventListener("click", removeHandler);
+
+            function showHide() {
+                div.classList.toggle('active');
+            }
+
+            function removeHandler() {
+                btn.link.removeEventListener("click", showHide);
+            }
+        </script>
+    </body>
+</html>
