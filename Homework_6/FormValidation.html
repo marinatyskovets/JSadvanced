@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Пример проверки достоверности ввода</title>
+    <style type="text/css">
+        input.invalid {
+            background-color: Pink;
+        }
+
+        input.valid {
+            background-color: LightGreen;
+        }
+    </style>
+</head>
+<body>
+    <!-- Переделайте примерм 013 через работу атрибутов / addEvemtListener().
+    Попробуйте варианты с рефакторингом -->
+
+    <form name="form1">
+            Name:
+        <input type="text" name="userName" onchange="nameOnChange(this)">
+        <br>
+            email:
+        <input type="text" name="email" onchange="emailOnChange(this)">
+        <br>
+            zipcode:
+        <input type="text" name="zip" onchange="zipcodeOnChange(this)">
+        <br>
+        <input type="submit">
+    </form>
+
+
+    <script>
+
+        function validate(elem, pattern) {
+            var res = pattern.test(elem.value);
+            if (res === false) {
+                elem.className = "invalid";
+            }
+            else {
+                elem.className = "valid";
+            }
+        }
+
+        function nameOnChange(elem) {
+            var pattern = /\S/;
+            validate(elem, pattern);
+        }
+
+        function emailOnChange(elem) {
+            var pattern = /\b[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b/i;
+            validate(elem, pattern);
+        }
+
+        function zipcodeOnChange(elem) {
+            var pattern = /\d{5}/;
+            validate(elem, pattern);
+        }
+
+        form1.addEventListener('submit', function (e) {
+            for (var i = 0; i < form1.elements.length; ++i) {
+                var elem = form1.elements[i];
+                if (elem.type === "text" && elem.onchange) {
+                    if (elem.className === "invalid") {
+                        alert("Допущены ошибки при заполнении формы.");
+                        e.preventDefault();
+                        return false;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

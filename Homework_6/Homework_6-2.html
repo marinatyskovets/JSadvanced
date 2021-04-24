@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_6-1</title>
+    <style>
+
+        body {
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .circle {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            margin: 10px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <!--
+    создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+    при попадании div к краю окна, он переходит к началу окна.
+    -->
+
+    <div id="circle" class="circle"></div>
+    <button id="stop">STOP</button>
+
+    <script>
+        var element = document.getElementById('circle');
+        var btn = document.getElementById('stop');
+        var animation = null;
+
+        element.addEventListener("click", function () {
+            if (animation) {
+                animation.play();
+            } else {
+                initAnimation();
+            }
+        }, false);
+
+        btn.addEventListener("click", function () {
+            animation.pause();
+        }, false);
+
+        function initAnimation() {
+            animation = element.animate([
+                {transform: 'translateX(0)'},
+                {transform: 'translateX(100vw)'}
+            ], {
+                duration: 10000,
+                iterations: Infinity,
+                specialEasing: {
+                    width: "linear",
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_7-1</title>
+    <style>
+        .help-text,
+        .content {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+        .date {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Создайте функцию, которая возвращает день недели для даты.
+    День нужно возвратить в формате - понедельник имеет номер 1, вторник номер 2, …, воскресенье - номер 7. -->
+
+    <div class="help-text">Для проверки введите дату в формате гггг/мм/дд</div>
+    <input type="text" class="date">
+    <button class="btn">ПРОВЕРИТЬ</button>
+    <div class="content">ОТВЕТ: <span></span></div>
+
+    <script>
+        var days = ['7', '1', '2', '3', '4', '5', '6'];
+        var btn = document.querySelector('.btn');
+        btn.addEventListener('click', function () {
+            var dateString = document.querySelector('.date').value;
+            var date = new Date(dateString);
+            var answer = document.querySelector('span');
+            answer.innerHTML = days[date.getDay()];
+        })
+
+    </script>
+</body>
+</html>

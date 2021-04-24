@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_7-2</title>
+</head>
+<body>
+    <!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+
+    <script>
+        class Man {
+            constructor(name, walk, eat, drink) {
+                this.name = name;
+                this.walk = walk;
+                this.eat = eat;
+                this.drink = drink;
+            }
+        }
+
+        class Soldier extends Man {
+            shoot() {
+                console.log('Умеет стрелять');
+            }
+        }
+
+        class Doctor extends Man {
+            cure() {
+                console.log('Умеет лечить');
+            }
+        }
+
+        var creatSoldier = new Soldier('Cолдат', 'в форме', 'кашу', 'чай');
+        console.log(creatSoldier);
+        creatSoldier.shoot();
+
+        var creatDoctor = new Doctor('Доктор', 'в халате', 'суп', 'молоко');
+        console.log(creatDoctor);
+        creatDoctor.cure();
+
+        //..........................................
+
+        // function Cure(name) {
+        //     this.name = name;
+        //
+        //     this.cure = function () {
+        //         document.write("Это " + this.name + " он " + this.skill + "<br />");
+        //     };
+        // }
+        //
+        // function Doctor(name, walk, eat, drink, skill) {
+        //     this.name = name;
+        //     this.walk = walk;
+        //     this.eat = eat;
+        //     this.drink = drink;
+        //     this.skill = skill;
+        // }
+        //
+        // Doctor.prototype = new Cure();
+        //
+        // var doctor = new Doctor('Доктор', '30', 'яблоко', 'воду', 'лечит всех');
+        // doctor.cure();
+        // console.log(doctor);
+        //
+        // function Dentist(name, walk, eat, drink, skill) {
+        //     this.name = name;
+        //     this.walk = walk;
+        //     this.eat = eat;
+        //     this.drink = drink;
+        //     this.skill = skill;
+        // }
+        //
+        // function Surgeon(name, walk, eat, drink, skill) {
+        //     this.name = name;
+        //     this.walk = walk;
+        //     this.eat = eat;
+        //     this.drink = drink;
+        //     this.skill = skill;
+        //
+        //     this.cure = function () {
+        //         document.write('Это Хирург он делает операции');
+        //     };
+        // }
+        //
+        // Dentist.prototype = new Doctor();
+        // Surgeon.prototype = new Doctor();
+        //
+        // var dentist = new Dentist('Дантист', '50', 'суп', 'чай', 'лечит зубы');
+        // var surgeon = new Surgeon('Хирург', '10', 'каша', 'кофе', 'делает операции');
+        //
+        // dentist.cure();
+        // surgeon.cure();
+        // console.log(dentist);
+        // console.log(surgeon);
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_6-1</title>
+    <style>
+        .circle {
+            display: block;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: #449d44;
+            z-index: 100;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- drag and drop -->
+
+    <div class="circle"></div>
+
+    <script>
+        var circle = document.querySelector('.circle');
+
+        circle.addEventListener('mousedown', function (e) {
+
+            var shiftX = e.clientX - circle.getBoundingClientRect().left;
+            var shiftY = e.clientY - circle.getBoundingClientRect().top;
+
+            document.body.append(circle);
+
+            function move(pageX, pageY) {
+                circle.style.left = pageX - shiftX + 'px';
+                circle.style.top = pageY - shiftY + 'px';
+            }
+
+            function onMouseMove(e) {
+                move(e.pageX, e.pageY);
+            }
+
+            document.addEventListener('mousemove', onMouseMove);
+
+            circle.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', onMouseMove);
+            });
+
+        });
+
+        circle.addEventListener('dragstart', function () {
+            return false;
+        });
+    </script>
+</body>
+</html>

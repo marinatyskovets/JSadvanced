@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework_8</title>
+    <style>
+
+        #exit {
+            display: none;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .content {
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            font-size: 30px;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            white-space: nowrap;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            margin: 0 auto;
+            padding: 15px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .btn--success {
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+        }
+
+        .btn--success:hover {
+            background-color: #449d44;
+            border-color: #398439;
+        }
+
+        .btn--danger {
+            background-color: #d9534f;
+            border-color: #d43f3a;
+        }
+
+        .btn--danger:hover {
+            background-color: #c9302c;
+            border-color: #ac2925;
+        }
+    </style>
+</head>
+<body>
+    <!-- Создайте страницу которая запрашивает имя пользователя, если пользователь вводит "Admin" либо "admin" он попадает на страницу,
+    которая оповещает его о том что " Пользоваетль Admin(не статическая строка, а данные что ввел пользователь) вошел в систему"
+    а рядом разместите кнопку "Выход" которая вернет пользователя к модальному окну ввода логина.
+    Реализуйте код как для куки так и для localstorage. -->
+
+
+    <div class="wrapper">
+        <div class="content"></div>
+        <button id="enter" class="btn btn--success">Вход</button>
+        <button id="exit" class="btn btn--danger">Выход</button>
+    </div>
+
+
+    
+    <script>
+        window.addEventListener("load", function () {
+            var text = document.querySelector('.content');
+            var btn = {
+                enter: document.getElementById('enter'),
+                exit: document.getElementById('exit'),
+            };
+
+            btn.enter.addEventListener('click', signIn);
+            btn.exit.addEventListener('click', signOut);
+
+            function signIn() {
+                login = prompt('Введите логин:', '');
+
+                setCookie();
+
+                var pattern = /user=[Aa]dmin/;
+                if (pattern.test(document.cookie)) {
+                    btn.enter.style.display = 'none';
+                    btn.exit.style.display = 'block';
+                    text.innerHTML = 'Пользователь ' +  login  + ' вошел в систему';
+                    localStorage.setItem('userName', login);
+                    document.querySelector('title').innerText = `Hello, ${localStorage.getItem('userName')}`
+                } else {
+                    alert('Неправильно введен логин');
+                }
+            }
+
+            function setCookie() {
+                document.cookie = 'user=' + login + '';
+            }
+
+            function signOut() {
+                text.innerHTML = '';
+                document.querySelector('title').innerText = `Homework_8`;
+                btn.enter.style.display = 'block';
+                btn.exit.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
